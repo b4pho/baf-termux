@@ -1,6 +1,6 @@
-# BaffoTermux v0.1
+# ~ BaffoTermux Installer ~
 
-echo "Installing BaffoTermux v0.1..."
+echo "Installing BaffoTermux v0.11..."
 
 function copyFromGit() {
 	cp "${1}" "${1}.old" # backup
@@ -20,8 +20,9 @@ chmod +x ~/.logo.sh
 
 # vim config / style
 mkdir ~/.vim
-copyFromGit ~/.vim/.vimrc .vimrc
+copyFromGit ~/.vimrc .vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # apply preferred style ( created with termux-style )
 mkdir ~/.termux
