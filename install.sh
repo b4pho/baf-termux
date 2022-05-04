@@ -1,17 +1,20 @@
 # ~ BaffoTermux Installer ~
 
-echo "Installing BaffoTermux v0.11..."
+echo "Installing BaffoTermux v0.12..."
 
 function copyFromGit() {
 	cp "${1}" "${1}.old" # backup
 	wget -O $1 https://raw.githubusercontent.com/baffetto/baffotermux/master/$2
 }
 
+# Upgrade Termux
+pkg upgrade && pkg update
+
 # setup termux permissions
 termux-setup-storage
 
 # Installing apps
-pkg install man git micro vim tree zip python lua clang luarocks nodejs wget ranger tmux
+pkg install man git micro vim tree zip python3 lua54 clang luarocks nodejs wget ranger tmux
 
 # bashrc init
 copyFromGit ~/.bashrc .bashrc
